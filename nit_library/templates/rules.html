@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules & Regulations | NiT Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a3a83;
+            --leaf-green: #8dc63f;
+            --bg-gray: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-gray);
+        }
+
+        /* --- EXACT HEADER FROM YOUR SCREENSHOT --- */
+        header {
+            background: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            color: var(--primary-blue);
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .call-us {
+            font-size: 12px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .call-us span {
+            color: var(--leaf-green);
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-blue); /* Blue link color as requested */
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--leaf-green);
+        }
+
+        /* New Member Registration Button Style */
+        .btn-reg {
+            background: var(--leaf-green);
+            color: white !important;
+            border-radius: 20px;
+            padding: 8px 18px !important;
+            box-shadow: 0 4px 10px rgba(141, 198, 63, 0.3);
+        }
+
+        /* Login Button Style */
+        .btn-login {
+            background: var(--primary-blue);
+            color: white !important;
+            border-radius: 5px;
+            padding: 8px 20px !important;
+        }
+
+        /* --- AWESOME RULES SECTION --- */
+        .page-header {
+            background: linear-gradient(rgba(26, 58, 131, 0.9), rgba(26, 58, 131, 0.9)), 
+                        url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 5%;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 38px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -40px auto 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .intro-text {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            padding: 15px;
+            background: #fff;
+            border-left: 4px solid var(--primary-blue);
+            transition: 0.3s;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .rule-item:hover {
+            transform: translateX(10px);
+            background: #f0f4ff;
+            border-left-color: var(--leaf-green);
+        }
+
+        .rule-icon {
+            background: var(--primary-blue);
+            color: white;
+            min-width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .rule-text {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .important-note {
+            background: #fff8e1;
+            border: 1px dashed #ffa000;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            border-bottom: 2px solid var(--leaf-green);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+            header { flex-direction: column; height: auto; padding: 15px; }
+            nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="brand">
+            <div class="logo-text">NiT LIBRARY</div>
+            <div class="call-us">📞 Call Us: <span>033 2563 8888</span></div>
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'notice_page' %}">Notice</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="{% url 'register' %}" class="btn">✨ New Member Registration</a></li>
+                <li><a href="{% url 'login_url' %}" class="btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>RULES AND REGULATIONS</h1>
+        <div style="font-size: 14px; color: var(--leaf-green);">Home / Rules and Regulations</div>
+    </section>
+
+    <div class="container">
+        <div class="intro-text">
+            Library rules are reorganized in accordance with the Library Policy since 2012. We expect all members to exercise self-discipline and respect while using the library.
+        </div>
+
+        <div class="rules-list">
+            <div class="rule-item">
+                <div class="rule-icon">1</div>
+                <div class="rule-text">The Library is open to registered members only. Valid membership card is mandatory.</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">2</div>
+                <div class="rule-text">Library timing: <b>8:00 am - 8:00 pm</b> (Mon to Fri) & <b>9:45 am - 1:45 pm</b> (Sat).</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">3</div>
+                <div class="rule-text">No bags, umbrellas, or personal books are allowed inside the library premises.</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">4</div>
+                <div class="rule-text">Consumption of food and use of mobile phones is <b>strictly prohibited</b>.</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">5</div>
+                <div class="rule-text">Fine for late return: <b>Rs. 2 per day</b> for each book.</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">6</div>
+                <div class="rule-text">Silence must be observed. No discussions are permitted inside the library.</div>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <h4 style="color: #e65100; margin-bottom: 10px;">⚠️ Pro Tip:</h4>
+            Loss of membership card must be reported to the librarian immediately to avoid misuse.
+        </div>
+
+        <a href="index.html" class="back-btn">← Back to Home Page</a>
+    </div>
+
+    <footer>
+        NiT © 2026 | Developed by ByteBuilder@prestige
+    </footer>
+
+</body>
+</html>
