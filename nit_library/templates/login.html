@@ -137,7 +137,7 @@
         <div class="error-msg">⚠️ {{ error }}</div>
         {% endif %}
 
-        <form method="POST" action="{% url 'login_url' %}">
+        <form method="POST" action=".">
             {% csrf_token %}
             
             <div class="form-group">
