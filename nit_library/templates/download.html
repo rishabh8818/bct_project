@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Books | NiT Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --nit-blue: #1a3a83;
+            --nit-green: #8dc63f;
+            --bg-light: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header Section matching your Notice Screenshot */
+        .header-banner {
+            background: var(--nit-blue);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header-banner h1 {
+            font-size: 40px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-banner p {
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -40px auto 50px auto; /* Card banner ke thoda upar overlap karega */
+            padding: 0 20px;
+        }
+
+        /* Navbar Back Button style */
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            background: white;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--nit-blue);
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* E-Book Card - Exact Notice Design */
+        .ebook-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--nit-green); /* Side accent */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .ebook-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .content-left {
+            flex: 1;
+        }
+
+        .tag {
+            background: #f0f9eb;
+            color: var(--nit-green);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .ebook-title {
+            font-size: 22px;
+            color: var(--nit-blue);
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .ebook-author {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Action Button */
+        .read-btn {
+            background: #00a8e8; /* Dashboard blue button color */
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: 0.3s;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        .read-btn:hover {
+            background: var(--nit-blue);
+            box-shadow: 0 4px 10px rgba(0, 168, 232, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .ebook-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .read-btn {
+                margin-left: 0;
+                margin-top: 15px;
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+            }
+            .header-banner h1 {
+                font-size: 28px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <a href="{% url 'index' %}" class="back-btn">← Back to Home</a>
+    </div>
+
+    <div class="header-banner">
+        <h1>Digital E-Books</h1>
+        <p>Access your academic resources anywhere, anytime</p>
+    </div>
+
+    <div class="container">
+        {% for ebook in ebooks %}
+        <div class="ebook-card">
+            <div class="content-left">
+                <span class="tag">📖 E-RESOURCE</span>
+                <h2 class="ebook-title">{{ ebook.title }}</h2>
+                <p class="ebook-author">Author: {{ ebook.author }}</p>
+            </div>
+            
+            <a href="{{ ebook.file_link }}" target="_blank" class="read-btn">READ ONLINE</a>
+        </div>
+        {% empty %}
+        <div class="ebook-card" style="justify-content: center; border-left-color: #ccc;">
+            <p style="color: #999;">No E-books found in the library vault.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        NiT Library © 2026 | Developed by Bytabuilder@prestige
+    </div>
+
+</body>
+</html>

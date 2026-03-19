@@ -21,5 +21,7 @@ urlpatterns = [
 
     path('', views.index, name='index'),
     path('notices/', views.notice_view, name='notice_page'),
-
+    path('download/', views.download_view, name='download_page'),
+    # Isse urlpatterns list ke andar daal do
+    path('contact/', views.contact_view, name='contact_page'),
 ]
